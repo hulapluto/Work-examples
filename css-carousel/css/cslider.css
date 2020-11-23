@@ -1,0 +1,132 @@
+.carousel {
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.carousel .c-slider img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.carousel .c-slider > img:nth-child(1) {
+  -webkit-animation: fadeInOut 15s linear 10s infinite;
+          animation: fadeInOut 15s linear 10s infinite;
+}
+
+.carousel .c-slider > img:nth-child(2) {
+  -webkit-animation: fadeInOut 15s linear 5s infinite;
+          animation: fadeInOut 15s linear 5s infinite;
+}
+
+.carousel .c-slider > img:nth-child(3) {
+  -webkit-animation: fadeInOut 15s linear infinite;
+          animation: fadeInOut 15s linear infinite;
+}
+
+@-webkit-keyframes fadeInOut {
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 0;
+  }
+  92% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 0;
+  }
+  92% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.carousel .c-overlay {
+  position: absolute;
+  margin-top: 350px;
+  margin-left: 40px;
+  width: 500px;
+  padding: 30px 40px;
+  background-color: darkmagenta;
+  color: aquamarine;
+}
+
+@media (max-width: 1500px) {
+  .carousel .c-overlay {
+    margin-top: 300px;
+  }
+}
+
+@media (max-width: 1350px) {
+  .carousel .c-overlay {
+    margin-top: 200px;
+    width: 400px;
+  }
+}
+
+@media (max-width: 960px) {
+  .carousel .c-overlay {
+    margin-top: 290px;
+    margin-left: 0px;
+    width: 91.5%;
+  }
+}
+
+@media (max-width: 947px) {
+  .carousel .c-overlay {
+    margin-top: 280px;
+    margin-left: 0px;
+    width: 91.4%;
+  }
+}
+
+@media (max-width: 911px) {
+  .carousel .c-overlay {
+    margin-top: 270px;
+    margin-left: 0px;
+    width: 91.0%;
+  }
+}
+
+@media (max-width: 881px) {
+  .carousel .c-overlay {
+    display: none;
+  }
+}
+
+.carousel .c-overlay .btn {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: inline-block;
+  height: 55px;
+  margin-bottom: 15px;
+  padding: 20px 30px;
+  text-align: center;
+  background-color: aquamarine;
+  border: 1px solid white;
+  color: darkmagenta;
+}
+/*# sourceMappingURL=cslider.css.map */

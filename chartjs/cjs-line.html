@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style>
+    :root { gc-color: #00ab4a; ffspv: #007dc4; ffs: #00446f;}
+    body { 
+        background-color: #003c71;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.js"></script>
+
+<script>
+    var ctx1 = document.getElementById('myChart').getContext('2d');
+
+    var gcFill = ctx1.createLinearGradient(500, 0, 300, 0);
+        gcFill.addColorStop(0, "rgba(0,127,55,1)");
+        gcFill.addColorStop(1, "rgba(0,171,74,1)");
+    var ffspvFill = ctx1.createLinearGradient(500, 0, 300, 0);
+        ffspvFill.addColorStop(0, "rgba(0,94,148,1)");
+        ffspvFill.addColorStop(1, "rgba(0,125,196,1)");
+    var ffsFill = ctx1.createLinearGradient(500, 0, 100, 0);
+        ffsFill.addColorStop(0, "rgba(1,35,56,1)");
+        ffsFill.addColorStop(1, "rgba(0,68,111,1)");
+
+    var chart = new Chart(ctx1, {
+        type: 'doughnut',
+        data: {
+            // labels: ["Global Capitation","FFS vs PV", "FFS"],
+            datasets: [
+                {
+                // label: 'Global Capitation',
+                labels: ['Global Capitation','Gaps in Care'],
+                backgroundColor: [gcFill,'transparent'],
+                borderColor: ['#003c71','transparent'],
+                HoverBorderColor: ['transparent','transparent'],
+                borderWidth: 7,
+                data: [80,20]
+                },
+                {
+                // label: 'FFS vs PV',
+                labels: ['FFS vs PV','Gap in Care'],
+                backgroundColor: ['#007dc4','transparent'],
+                borderColor: ['#003c71','transparent'],
+                HoverBorderColor: ['transparent','transparent'],
+                borderWidth: 7,
+                data: [75,25]
+                },
+                {
+                // label: 'FFS',
+                labels: ['FFS','Gap in Care'],
+                backgroundColor: ['#00446f','transparent'],
+                borderColor: ['#003c71','transparent'],
+                HoverBorderColor: ['transparent','transparent'],
+                borderWidth: 7,
+                data: [74,26]
+                }
+            ]
+        },
+        options: {
+            cutoutPercentage: 30,
+            title: {
+                text: "Global Capitation, FFS Plus Value, FFS",
+                position: "bottom",
+                fontSize: 16,
+                fontColor: 'white',
+                display: true,
+            },
+            legend: { 
+                display: true,
+                position: 'left' 
+            },
+            tooltips: {
+                callbacks: {
+                    label: function (item, data) {
+                        // console.log(item)
+                        var label = data.datasets[item.datasetIndex].labels[item.index];
+                        var value = data.datasets[item.datasetIndex].data[item.index];
+                        return label + ': ' + value;
+                    }
+                }
+            }
+
+        }
+    });
+</script>
+
+</body>
+</html>
